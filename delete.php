@@ -1,5 +1,7 @@
 <?php
 
+require_once 'includes/filter-wrapper.php';
+
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 if(empty($id)) {
@@ -7,7 +9,7 @@ if(empty($id)) {
 	exit;
 }
 
-require_once '../db.php';
+require_once 'includes/db.php';
 
 $sql = $db->prepare('
 	DELETE FROM dinosaurs
